@@ -2245,7 +2245,7 @@ void QDECL CL_RefPrintf( int print_level, const char *fmt, ... ) {
 	char msg[MAXPRINTMSG];
 
 	va_start( argptr,fmt );
-	vsprintf( msg,fmt,argptr );
+	vsnprintf( msg, sizeof(msg), fmt, argptr );
 	va_end( argptr );
 
 	if ( print_level == PRINT_ALL ) {
@@ -2256,8 +2256,6 @@ void QDECL CL_RefPrintf( int print_level, const char *fmt, ... ) {
 		Com_DPrintf( S_COLOR_RED "%s", msg );     // red
 	}
 }
-
-
 
 /*
 ============
